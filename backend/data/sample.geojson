@@ -1,0 +1,43 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Deforestation Area 1",
+        "area_hectares": 125.5,
+        "detection_date": "2024-01-15",
+        "confidence": 0.92
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [-63.45, -10.25],
+          [-63.45, -10.20],
+          [-63.40, -10.20],
+          [-63.40, -10.25],
+          [-63.45, -10.25]
+        ]]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "name": "Urban Heat Island 1",
+        "temperature_avg": 38.5,
+        "temperature_max": 42.3,
+        "area_km2": 2.8
+      },
+      "geometry": {
+        "type": "Polygon",
+        "coordinates": [[
+          [106.82, -6.22],
+          [106.82, -6.20],
+          [106.84, -6.20],
+          [106.84, -6.22],
+          [106.82, -6.22]
+        ]]
+      }
+    }
+  ]
+}
