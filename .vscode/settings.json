@@ -1,9 +1,8 @@
 {
   "editor.formatOnSave": true,
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true
+    "source.fixAll.eslint": "explicit"
   },
-  
   // Python settings
   "python.linting.enabled": true,
   "python.linting.pylintEnabled": true,
@@ -15,7 +14,6 @@
     "editor.defaultFormatter": "ms-python.black-formatter",
     "editor.formatOnSave": true
   },
-  
   // JavaScript/React settings
   "[javascript]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -29,18 +27,15 @@
   "[typescriptreact]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
-  
   // Tailwind CSS IntelliSense
   "tailwindCSS.includeLanguages": {
     "javascript": "javascript",
     "javascriptreact": "javascriptreact"
   },
-  
   // File associations
   "files.associations": {
     "*.css": "tailwindcss"
   },
-  
   // Exclude directories from search
   "search.exclude": {
     "**/node_modules": true,
@@ -48,18 +43,16 @@
     "**/__pycache__": true,
     "**/dist": true
   },
-  
   // Git
   "git.ignoreLimitWarning": true,
-  
   // ESLint
-  "eslint.workingDirectories": ["frontend"],
-  
+  "eslint.workingDirectories": [
+    "frontend"
+  ],
   // Prettier
   "prettier.singleQuote": true,
   "prettier.semi": true,
   "prettier.tabWidth": 2,
-  
   // Python virtual environment
   "python.defaultInterpreterPath": "${workspaceFolder}/backend/venv/bin/python",
   "python.terminal.activateEnvironment": true
