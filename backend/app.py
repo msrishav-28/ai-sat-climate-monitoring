@@ -5,29 +5,50 @@ AI-Powered Satellite Climate Monitoring - Streamlit App
 import streamlit as st
 import pandas as pd
 import numpy as np
-import plotly.express as px
-import plotly.graph_objects as go
+import sys
+import os
+
+# Add the current directory to Python path
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+
+try:
+    import plotly.express as px
+    import plotly.graph_objects as go
+except ImportError:
+    st.error("Please install plotly: pip install plotly")
+    st.stop()
+
 from datetime import datetime, timedelta
-import folium
-from streamlit_folium import st_folium
 import json
 from typing import Dict, List
 
-# Import custom modules
-from src.gee_utils import (
-    initialize_earth_engine, get_aoi_geometry, get_image_collection,
-    get_composite_image, compute_ndvi_trend, detect_deforestation,
-    identify_heat_islands, export_to_geojson, get_time_series_data,
-    get_area_statistics, get_map_tiles
-)
-from src.inference import (
-    detect_deforestation_ml, detect_heat_islands_threshold,
-    analyze_vegetation_trend, generate_risk_score
-)
-from src.config import (
-    DEFAULT_AOIS, NDVI_VIS_PARAMS, LST_VIS_PARAMS,
-    DEFORESTATION_COLORS
-)
+try:
+    import folium
+    from streamlit_folium import st_folium
+except ImportError:
+    st.error("Please install folium: pip install folium streamlit-folium")
+    st.stop()
+
+# Import custom modules with error handling
+try:
+    from src.gee_utils import (
+        initialize_earth_engine, get_aoi_geometry, get_image_collection,
+        get_composite_image, compute_ndvi_trend, detect_deforestation,
+        identify_heat_islands, export_to_geojson, get_time_series_data,
+        get_area_statistics, get_map_tiles
+    )
+    from src.inference import (
+        detect_deforestation_ml, detect_heat_islands_threshold,
+        analyze_vegetation_trend, generate_risk_score
+    )
+    from src.config import (
+        DEFAULT_AOIS, NDVI_VIS_PARAMS, LST_VIS_PARAMS,
+        DEFORESTATION_COLORS
+    )
+except ImportError as e:
+    st.error(f"Failed to import modules: {e}")
+    st.error("Make sure you're running from the backend directory")
+    st.stop()
 
 # Page config
 st.set_page_config(

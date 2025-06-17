@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import glass morphism styles */
+@import './glass.css';
+
 /* Custom CSS for additional styling */
 body {
   margin: 0;
