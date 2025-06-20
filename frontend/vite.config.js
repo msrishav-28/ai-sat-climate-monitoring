@@ -7,10 +7,11 @@ export default defineConfig({
   server: {
     port: 3000,
     proxy: {
+      // Point API requests to the new FastAPI server on port 8000
       '/api': {
-        target: 'http://localhost:8501',
+        target: 'http://localhost:8000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        // No rewrite needed if endpoints start with /api in the server
       },
     },
   },
